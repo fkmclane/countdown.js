@@ -37,7 +37,7 @@ countdown.start();
 ###CountdownDate (countdown.date.js)###
 ```
 var countdown = CountdownDate(<date>, <format>, <object>, [callback]);
-``
+```
 
 Example (assumes there is an HTML object with id="y2k38"):
 ```
