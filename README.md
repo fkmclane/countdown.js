@@ -23,6 +23,19 @@ API
 
 Usage
 -----
+###Format###
+The format is the string that is displayed in object and updated each second. Specifiers are replaced with their values and the values are determined based on what specifiers are there.  For example, if there is no day specifier but there is an hour specifier, the hours would include multiple days. However, if there is a day specifier and an hour specifier, then the hours would always be less than one day and the days would show multiple days.
+
+####Specifier####
+| Specifier | Replacement |
+| --------- | ----------- |
+| %y        | Years       |
+| %w        | Weeks       |
+| %d        | Days        |
+| %h        | Hours       |
+| %m        | Minutes     |
+| %s        | Seconds     |
+
 ###Countdown (countdown.js)###
 ```
 var countdown = Countdown(<seconds>, <format>, <object>, [callback]);
