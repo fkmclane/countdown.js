@@ -7,13 +7,15 @@ The source files are located in the `src` folder and the minified javascript fil
 API
 ---
 ###Countdown (countdown.js)###
-| Member                                    | Description                       |
-| ----------------------------------------- | --------------------------------- |
-| Countdown(time, format, object, callback) | Constructs a new Countdown object |
-| Countdown.start()                         | Starts (or resumes) the countdown |
-| Countdown.pause()                         | Pauses the countdown              |
-| Countdown.stop()                          | Stops and resets the countdown    |
-| Countdown.secs                            | The number of seconds left        |
+| Member                                    | Description                        |
+| ----------------------------------------- | ---------------------------------- |
+| Countdown(time, format, object, callback) | Constructs a new Countdown object  |
+| Countdown.start()                         | Starts (or resumes) the countdown  |
+| Countdown.pause()                         | Pauses the countdown               |
+| Countdown.stop()                          | Stops and resets the countdown     |
+| Countdown.time                            | The number of seconds to countdown |
+| Countdown.secs                            | The number of seconds left         |
+| Countdown.running                         | Whether the timer is running       |
 
 ###CountdownDate (countdown.date.js)###
 | Member                                          | Description                                                                                 |
@@ -35,6 +37,7 @@ The format is the string that is displayed in object and updated each second. Sp
 | %h        | Hours       |
 | %m        | Minutes     |
 | %s        | Seconds     |
+| %t        | Deciseconds |
 
 ###Countdown (countdown.js)###
 ```
@@ -43,7 +46,7 @@ var countdown = Countdown(<seconds>, <format>, <object>, [callback]);
 
 Example (assumes there is an HTML object with id="bomb"):
 ```
-var countdown = Countdown(100, 'BOMB!!! You have %s seconds to survive', document.getElementById('bomb'), function() { alert('BOOM'); });
+var countdown = Countdown(100, 'BOMB!!! %s.%t', document.getElementById('bomb'), function() { alert('BOOM'); });
 countdown.start();
 ```
 
@@ -56,7 +59,3 @@ Example (assumes there is an HTML object with id="y2k38"):
 ```
 var countdown = CountdownDate(new Date('03:14:07 Tuesday, 19 January 2038 UTC'), 'You have %y years, %d days, %h hours, %m minutes, and %s seconds before <a href="http://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.', document.getElementById('y2k38'));
 ```
-
-Disclaimer
-----------
-This library isn't particularly fancy and should not be relied on for an accuracy of more than one second.
