@@ -41,14 +41,14 @@ var Countdown = function(time, format, object, callback) {
 
 	self.start = function() {
 		target = +new Date() + self.secs * 1000;
-		count();
-		interval = setInterval(count, 50);
 		self.running = true;
+		interval = setInterval(count, 50);
+		count();
 	};
 
 	self.pause = function() {
-		clearInterval(interval);
 		self.running = false;
+		clearInterval(interval);
 	};
 
 	self.stop = function() {

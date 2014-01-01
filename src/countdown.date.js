@@ -30,6 +30,6 @@ var CountdownDate = function(target, format, object, callback) {
 		} 
 	}
 
-	count();
 	interval = setInterval(count, 50);
+	count();
 };
