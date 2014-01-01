@@ -1,12 +1,11 @@
 var CountdownDate = function(target, format, object, callback) {
 	var self = this; 
 
-	var date = new Date(); 
-	self.secs = (target.getTime() - date.getTime()) / 1000; 
+	var interval;
 
-	var interval = setInterval(function() { 
-		self.secs--; 
-		if(self.secs <= 0) { 
+	var count = function() { 
+		self.secs = (target - new Date()) / 1000; 
+		if(self.secs < 0) { 
 			clearInterval(interval); 
 			typeof callback == 'function' && callback(); 
 		} 
@@ -25,8 +24,12 @@ var CountdownDate = function(target, format, object, callback) {
 			calculate('h', 3600);
 			calculate('m', 60);
 			calculate('s', 1);
+			calculate('t', 0.1);
 
 			object.innerHTML = str;
 		} 
-	}, 1000);
+	}
+
+	count();
+	interval = setInterval(count, 50);
 };
