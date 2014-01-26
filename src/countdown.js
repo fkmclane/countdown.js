@@ -5,10 +5,12 @@ var Countdown = function(time, format, object, callback) {
 	self.secs = time;
 	self.running = false;
 
-	var interval;
 	var target;
 
 	var update = function() {
+		if(self.secs < 0)
+			self.secs = 0;
+
 		var last = -1;
 		var str = format;
 
@@ -29,26 +31,33 @@ var Countdown = function(time, format, object, callback) {
 	};
 
 	var count = function() {
+		if(!self.running)
+			return;
+
 		self.secs = (target - new Date()) / 1000;
-		if(self.secs < 0) {
+
+		update();
+
+		if(self.secs == 0) {
 			self.stop();
 			typeof callback == 'function' && callback();
+			return;
 		}
-		else {
-			update();
-		}
+
+		setTimeout(count, 50);
 	};
 
 	self.start = function() {
+		if(self.running)
+			return;
+
 		target = +new Date() + self.secs * 1000;
 		self.running = true;
-		interval = setInterval(count, 50);
 		count();
 	};
 
 	self.pause = function() {
 		self.running = false;
-		clearInterval(interval);
 	};
 
 	self.stop = function() {
