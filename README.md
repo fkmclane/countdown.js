@@ -1,6 +1,6 @@
 countdown.js
 ============
-A small (less than .6 KB) javascript library for creating a customizable timer on the page. It includes two versions, one for counting down a specified number of seconds and one for counting down to a date.
+countdown.js is a small (less than .6 KB) javascript library for creating a customizable timer on the page. It includes two versions, one for counting down a specified number of seconds and one for counting down to a date.
 
 The source files are located in the `src` folder and the minified javascript files are located in the `min` folder.
 
