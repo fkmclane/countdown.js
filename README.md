@@ -41,21 +41,21 @@ The format is the string that is displayed in object and updated each second. Sp
 
 ###Countdown (countdown.js)###
 ```
-var countdown = Countdown(<seconds>, <format>, <object>, [callback]);
+var countdown = new Countdown(<seconds>, <format>, <object>, [callback]);
 ```
 
 Example (assumes there is an HTML object with id="bomb"):
 ```
-var countdown = Countdown(100, 'BOMB!!! %s.%t', document.getElementById('bomb'), function() { alert('BOOM'); });
+var countdown = new Countdown(100, 'BOMB!!! %s.%t', document.getElementById('bomb'), function() { alert('BOOM'); });
 countdown.start();
 ```
 
 ###CountdownDate (countdown.date.js)###
 ```
-var countdown = CountdownDate(<date>, <format>, <object>, [callback]);
+var countdown = new CountdownDate(<date>, <format>, <object>, [callback]);
 ```
 
 Example (assumes there is an HTML object with id="y2k38"):
 ```
-var countdown = CountdownDate(new Date('03:14:07 Tuesday, 19 January 2038 UTC'), 'You have %y years, %d days, %h hours, %m minutes, and %s seconds before <a href="http://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.', document.getElementById('y2k38'));
+var countdown = new CountdownDate(new Date('03:14:07 Tuesday, 19 January 2038 UTC'), 'You have %y years, %d days, %h hours, %m minutes, and %s seconds before <a href="http://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.', document.getElementById('y2k38'));
 ```
