@@ -1,5 +1,5 @@
-var CountdownDate = function(target, format, object, callback) {
-	var self = this; 
+window['CountdownDate'] = function(target, format, object, callback) {
+	var self = this;
 
 	var update = function() {
 		if(self.secs < 0)
@@ -11,7 +11,7 @@ var CountdownDate = function(target, format, object, callback) {
 		var calculate = function(replace, secs) {
 			if(str.indexOf('%' + replace) != -1)
 				str = str.replace('%' + replace, Math.floor((last > 0 ? self.secs % last : self.secs) / (last = secs)));
-		}
+		};
 
 		calculate('y', 31556952);
 		calculate('w', 604800);
@@ -24,18 +24,18 @@ var CountdownDate = function(target, format, object, callback) {
 		object.innerHTML = str;
 	};
 
-	var count = function() { 
-		self.secs = (target - new Date()) / 1000; 
+	var count = function() {
+		self.secs = (target - new Date()) / 1000;
 
 		update();
 
-		if(self.secs == 0) { 
-			typeof callback == 'function' && callback(); 
+		if(self.secs == 0) {
+			typeof callback == 'function' && callback();
 			return;
-		} 
+		}
 
 		setTimeout(count, 50);
-	}
+	};
 
 	count();
 };

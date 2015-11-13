@@ -1,4 +1,4 @@
-var Countdown = function(time, format, object, callback) {
+window['Countdown'] = function(time, format, object, callback) {
 	var self = this;
 
 	self.time = time;
@@ -17,7 +17,7 @@ var Countdown = function(time, format, object, callback) {
 		var calculate = function(replace, secs) {
 			if(str.indexOf('%' + replace) != -1)
 				str = str.replace('%' + replace, Math.floor((last > 0 ? self.secs % last : self.secs) / (last = secs)));
-		}
+		};
 
 		calculate('y', 31556952);
 		calculate('w', 604800);
